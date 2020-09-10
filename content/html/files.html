@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.20/jsrsasign-all-min.js"></script>
+			<title>Veavy's Code</title>
+		</head>
+		<body>
+		<h1>hello</h1>
+		<div id="weavy-container" style="height:500px"></div>
+		</body>
+<script src="https://localhost:44323/javascript/weavy.jquery.min.js"></script>
+
+<script>
+			var weavy = new Weavy({
+				jwt: generateJWT("user-id","user@example.com")
+			});
+			var space = weavy.space({ key: "demo" });
+    space.app({
+        key: "files-demo",
+        type: "files",
+        container: "#weavy-container"
+    });
+
+			function generateJWT(id, email) {
+				var secretString = "clientsecret";
+	
+				
+				var dateSoon = new Date();
+				dateSoon.setHours(dateSoon.getHours() + 2);
+	
+				return KJUR.jws.JWS.sign(null, 
+									{ 
+										alg: "HS256", 
+										typ: "JWT" 
+									}, 
+									{       
+										iss: "clientid", 
+										client_id: "clientid", 
+										sub: id, 
+										exp: dateSoon.getTime() / 1000,      
+										email: email      
+									}, 
+									secretString);
+			}
+		</script>
+</html>
