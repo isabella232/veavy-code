@@ -44,8 +44,8 @@ export function activate(context: vscode.ExtensionContext) {
         }
         
         const content = eval("`" + getWebviewContent("messenger", context.extensionPath) + "`");
-        console.log(content);
-        currentPanel.webview.html = "hi";
+        
+        currentPanel.webview.html = content;
 
         currentPanel.onDidDispose(
           () => {

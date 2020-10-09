@@ -10,10 +10,10 @@
 		<h1>Weavy In-app Messenger</h1>
 		<div id="weavy-container" style="height:500px"></div>
 		</body>
-<script src="${weavyUrl}"></script>
+<script src="${weavyUrl}" onload="weavyScript=true"></script>
 <script>
 			var weavy = new Weavy({
-				jwt: generateJWT("ram-id","${weavyUserMail}")
+				jwt: generateJWT(makeid(5),"${weavyUserMail}")
 			});
 			var space = weavy.space({ key: "${spacesKey}" });
     space.app({
@@ -21,6 +21,17 @@
         type: "messenger",
         container: "#weavy-container"
     });
+
+
+	function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
 
 			function generateJWT(id, email) {
 				var secretString = "clientsecret";
