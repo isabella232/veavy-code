@@ -29,6 +29,51 @@
 				"command": "weavy.posts",
 				"title": "Weavy Posts"
 			}
+		],
+		"configuration": [
+			{
+				"title": "Weavy",
+				"properties": {
+					"weavy.url": {
+						"type": "string",
+						"description": "Weavy EndPoint Url",
+						"pattern": "^(http|https)://.*",
+						"examples": ["http://localhost:44323", "https://localhost:44323/"],
+						"scope": "application"
+					},
+					"weavy.user.mail": {
+						"type": "string",
+						"description": "Weavy User Mail",
+						"examples":["dave@weavy.com"],
+						"scope": "application",
+						"default": ""
+					},
+					"weavy.space.key": {
+						"type": "string",
+						"description": "Weavy Space Key",
+						"scope": "application",
+						"default": ""
+					},
+					"weavy.messenger.key": {
+						"type": "string",
+						"description": "Weavy Messenger Key",
+						"scope": "application",
+						"default": ""
+					},
+					"weavy.files.key": {
+						"type": "string",
+						"description": "Weavy Files Key",
+						"scope": "application",
+						"default": ""
+					},
+					"weavy.posts.key": {
+						"type": "string",
+						"description": "Weavy Posts Key",
+						"scope": "application",
+						"default": ""
+					}
+				}
+			}
 		]
 	},
 	"scripts": {

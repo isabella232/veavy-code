@@ -7,18 +7,17 @@
 			<title>Veavy's Code</title>
 		</head>
 		<body>
-		<h1>hello</h1>
+		<h1>Weavy In-app Messenger</h1>
 		<div id="weavy-container" style="height:500px"></div>
 		</body>
-<script src="https://localhost:44323/javascript/weavy.jquery.min.js"></script>
-
+<script src="${weavyUrl}"></script>
 <script>
 			var weavy = new Weavy({
-				jwt: generateJWT("user-id","user@example.com")
+				jwt: generateJWT("ram-id","${weavyUserMail}")
 			});
-			var space = weavy.space({ key: "demo" });
+			var space = weavy.space({ key: "${spacesKey}" });
     space.app({
-        key: "messenger-demo",
+        key: "${appKey}",
         type: "messenger",
         container: "#weavy-container"
     });
