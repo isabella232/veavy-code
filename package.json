@@ -12,7 +12,8 @@
 	"activationEvents": [
 		"onCommand:weavy.messenger",
 		"onCommand:weavy.files",
-		"onCommand:weavy.posts"
+		"onCommand:weavy.posts",
+		"onCommand:weavy.tasks"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -28,6 +29,10 @@
 			{
 				"command": "weavy.posts",
 				"title": "Weavy Posts"
+			},
+			{
+				"command": "weavy.tasks",
+				"title": "Weavy Tasks"
 			}
 		],
 		"configuration": [
@@ -69,6 +74,12 @@
 					"weavy.posts.key": {
 						"type": "string",
 						"description": "Weavy Posts Key",
+						"scope": "application",
+						"default": ""
+					},
+					"weavy.tasks.key": {
+						"type": "string",
+						"description": "Weavy Tasks Key",
 						"scope": "application",
 						"default": ""
 					}

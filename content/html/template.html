@@ -7,21 +7,42 @@
 			<title>Veavy's Code</title>
 		</head>
 		<body>
-		<h1>Weavy File Sharing</h1>
+		<h1 style="text-align: center;">Weavy ${appTitle}</h1>
 		<div id="weavy-container" style="height:500px"></div>
 		</body>
 <script src="${weavyUrl}" onload="weavyScript=true"></script>
-
 <script>
-			var weavy = new Weavy({
+
+	window.addEventListener("load", function(){
+		if(typeof weavyScript === "undefined"){
+			document.getElementById("weavy-container").innerHTML = "<p style='color:red'> Weavy Script Loading Error. Please contact IT Team </p>";
+			return;
+		}
+
+		var weavy = new Weavy({
 				jwt: generateJWT(makeid(5),"${weavyUserMail}")
 			});
-			var space = weavy.space({ key: "${spacesKey}" });
-    space.app({
-        key: "${appKey}",
-        type: "files",
-        container: "#weavy-container"
-    });
+		
+		var space = weavy.space({ key: "${spacesKey}" });
+		
+		space.app({
+			key: "${appKey}",
+			type: "${appName}",
+			container: "#weavy-container"
+		});
+
+	});
+
+
+	function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
 
 			function generateJWT(id, email) {
 				var secretString = "clientsecret";

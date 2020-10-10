@@ -7,11 +7,10 @@
 			<title>Veavy's Code</title>
 		</head>
 		<body>
-		<h1>Weavy File Sharing</h1>
+		<h1>Weavy Tasks App</h1>
 		<div id="weavy-container" style="height:500px"></div>
 		</body>
 <script src="${weavyUrl}" onload="weavyScript=true"></script>
-
 <script>
 			var weavy = new Weavy({
 				jwt: generateJWT(makeid(5),"${weavyUserMail}")
@@ -19,9 +18,20 @@
 			var space = weavy.space({ key: "${spacesKey}" });
     space.app({
         key: "${appKey}",
-        type: "files",
+        type: "tasks",
         container: "#weavy-container"
     });
+
+
+	function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
 
 			function generateJWT(id, email) {
 				var secretString = "clientsecret";
