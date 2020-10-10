@@ -5,11 +5,6 @@ export function activate(context: vscode.ExtensionContext) {
 
 	console.log('Congratulations, your extension "weavy" is now active!');
 	let currentPanel: vscode.WebviewPanel | undefined = undefined;
-  
-  // if(weavyUserMail === undefined || weavyUserMail === null){
-      // vscode.window.showErrorMessage("Weavy User Mail cannot be empty or null. Please update in settings");
-      // return;
-  // }
 
   let messenger = vscode.commands.registerCommand('weavy.messenger', () => {
     const columnToShowInM = vscode.window.activeTextEditor

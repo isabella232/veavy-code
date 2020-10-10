@@ -23,6 +23,7 @@
 				jwt: generateJWT(makeid(5),"${weavyUserMail}")
 			});
 		
+		try{
 		var space = weavy.space({ key: "${spacesKey}" });
 		
 		space.app({
@@ -30,7 +31,9 @@
 			type: "${appName}",
 			container: "#weavy-container"
 		});
-
+	}catch(err){
+		document.getElementById("weavy-container").innerHTML = "<p style='color:red'>" + err + "Please contact IT Team </p>";
+	}
 	});
 
 
