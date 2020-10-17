@@ -1,8 +1,13 @@
 {
 	"name": "weavy",
 	"displayName": "veavy's code",
-	"description": "",
+	"description": "Weavy VSCode Extension",
+	"icon": "images/logo.v1.png",
 	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Better-Boy/veavy-code"
+	},
 	"engines": {
 		"vscode": "^1.48.0"
 	},

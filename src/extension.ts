@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import {getWebviewContent, checkForMandatory} from './utils';
+import {getWebviewContent, checkForMandatory, getLogo} from './utils';
  
 export function activate(context: vscode.ExtensionContext) {
 
@@ -39,7 +39,8 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showErrorMessage(`Weavy ${appTitle} Key Cannot be empty/null. Please update a correct value in settings`);
           return false;
         }
-        
+        const weavyLogo = getLogo(context.extensionPath);
+
         const content = eval("`" + getWebviewContent(context.extensionPath) + "`");
         
         currentPanel.webview.html = content;
@@ -88,6 +89,7 @@ export function activate(context: vscode.ExtensionContext) {
           return false;
         }
         
+        const weavyLogo = getLogo(context.extensionPath);
         const content = eval("`" + getWebviewContent(context.extensionPath) + "`");
         
         currentPanel.webview.html = content;
@@ -134,7 +136,7 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showErrorMessage(`Weavy ${appTitle} Key Cannot be empty/null. Please update a correct value in settings`);
           return false;
         }
-        
+        const weavyLogo = getLogo(context.extensionPath);
         const content = eval("`" + getWebviewContent(context.extensionPath) + "`");
         
         currentPanel.webview.html = content;
@@ -181,7 +183,7 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showErrorMessage(`Weavy ${appTitle} Key Cannot be empty/null. Please update a correct value in settings`);
           return false;
         }
-        
+        const weavyLogo = getLogo(context.extensionPath);
         const content = eval("`" + getWebviewContent(context.extensionPath) + "`");
         
         currentPanel.webview.html = content;

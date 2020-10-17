@@ -32,3 +32,7 @@ export function checkForMandatory(weavyUrl:string|any, weavyUserMail: string|any
 function getHtmlPathUri(fileName: string, contextPath: string){
 	return Uri.file(join(contextPath, "content", "html", `${fileName}.html`)).with({scheme: "vscode-resource"});
 }
+
+export function getLogo(contextPath: string){
+	return Uri.file(join(contextPath, "content", "images", "icon.svg")).with({scheme: "vscode-resource"});
+}
