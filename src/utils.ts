@@ -34,5 +34,5 @@ function getHtmlPathUri(fileName: string, contextPath: string){
 }
 
 export function getLogo(contextPath: string){
-	return Uri.file(join(contextPath, "content", "images", "icon.svg")).with({scheme: "vscode-resource"});
+	return Uri.file(join(contextPath, "content", "images", "icon.svg"));
 }

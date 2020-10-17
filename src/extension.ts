@@ -2,29 +2,32 @@ import * as vscode from 'vscode';
 import {getWebviewContent, checkForMandatory, getLogo} from './utils';
  
 export function activate(context: vscode.ExtensionContext) {
-
+  let currentPanel: vscode.WebviewPanel | undefined;
 	console.log('Congratulations, your extension "weavy" is now active!');
-	let currentPanel: vscode.WebviewPanel | undefined = undefined;
 
   let messenger = vscode.commands.registerCommand('weavy.messenger', () => {
+    let currentPanelMess = currentPanel;
     const columnToShowInM = vscode.window.activeTextEditor
         ? vscode.window.activeTextEditor.viewColumn
         : undefined;
-
-      if (currentPanel) {
-        currentPanel.reveal(columnToShowInM);
+      
+      if (currentPanelMess) {
+        currentPanelMess.reveal(columnToShowInM);
       } else {
-        currentPanel = vscode.window.createWebviewPanel(
+        currentPanelMess = vscode.window.createWebviewPanel(
           'weavyMessenger',
-          'Weavy Messenger',
+          'Weavy Messaging',
           columnToShowInM || vscode.ViewColumn.One,
           {
 			  	  enableScripts: true
 		      }
         );
         
-        const appTitle = "Messenger";
-        const appName = appTitle.toLowerCase();
+        const logoUri = getLogo(context.extensionPath);
+        currentPanelMess.iconPath = logoUri;
+        const weavyLogo = currentPanelMess.webview.asWebviewUri(logoUri);
+        const appTitle = "MESSAGING";
+        const appName = "messenger";
         const weavy = vscode.workspace.getConfiguration("weavy");
         const weavyUrl = weavy.get<string>("url");
         const weavyUserMail = weavy.get<string>("user.mail");
@@ -39,15 +42,14 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showErrorMessage(`Weavy ${appTitle} Key Cannot be empty/null. Please update a correct value in settings`);
           return false;
         }
-        const weavyLogo = getLogo(context.extensionPath);
 
         const content = eval("`" + getWebviewContent(context.extensionPath) + "`");
         
-        currentPanel.webview.html = content;
+        currentPanelMess.webview.html = content;
 
-        currentPanel.onDidDispose(
+        currentPanelMess.onDidDispose(
           () => {
-            currentPanel = undefined;
+            currentPanelMess = undefined;
           },
           null,
           context.subscriptions
@@ -56,24 +58,28 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 	let files = vscode.commands.registerCommand('weavy.files', () => {
+    let currentPanelFiles = currentPanel;
 		const columnToShowInF = vscode.window.activeTextEditor
         ? vscode.window.activeTextEditor.viewColumn
         : undefined;
 
-      if (currentPanel) {
-        currentPanel.reveal(columnToShowInF);
+      if (currentPanelFiles) {
+        currentPanelFiles.reveal(columnToShowInF);
       } else {
-        currentPanel = vscode.window.createWebviewPanel(
+        currentPanelFiles = vscode.window.createWebviewPanel(
           'weavyFiles',
-          'Weavy Files',
+          'Weavy Secure File Sharing',
           columnToShowInF || vscode.ViewColumn.Two,
           {
 				enableScripts: true
 		  }
         );
         
-        const appTitle = "Files";
-        const appName = appTitle.toLowerCase();
+        const logoUri = getLogo(context.extensionPath);
+        currentPanelFiles.iconPath = logoUri;
+        const weavyLogo = currentPanelFiles.webview.asWebviewUri(logoUri);
+        const appTitle = "SECURE FILE SHARING";
+        const appName = "files";
         const weavy = vscode.workspace.getConfiguration("weavy");
         const weavyUrl = weavy.get<string>("url");
         const weavyUserMail = weavy.get<string>("user.mail");
@@ -89,14 +95,13 @@ export function activate(context: vscode.ExtensionContext) {
           return false;
         }
         
-        const weavyLogo = getLogo(context.extensionPath);
         const content = eval("`" + getWebviewContent(context.extensionPath) + "`");
         
-        currentPanel.webview.html = content;
+        currentPanelFiles.webview.html = content;
 
-        currentPanel.onDidDispose(
+        currentPanelFiles.onDidDispose(
           () => {
-            currentPanel = undefined;
+            currentPanelFiles = undefined;
           },
           null,
           context.subscriptions
@@ -104,24 +109,28 @@ export function activate(context: vscode.ExtensionContext) {
 	}});
 
 	let posts = vscode.commands.registerCommand('weavy.posts', () => {
+    let currentPanelPosts = currentPanel;
 		const columnToShowInP = vscode.window.activeTextEditor
         ? vscode.window.activeTextEditor.viewColumn
         : undefined;
 
-      if (currentPanel) {
-        currentPanel.reveal(columnToShowInP);
+      if (currentPanelPosts) {
+        currentPanelPosts.reveal(columnToShowInP);
       } else {
-        currentPanel = vscode.window.createWebviewPanel(
+        currentPanelPosts = vscode.window.createWebviewPanel(
           'weavyPosts',
-          'Weavy Posts',
+          'Weavy Feeds',
           columnToShowInP || vscode.ViewColumn.Three,
           {
 				enableScripts: true
 		  }
         );
         
-        const appTitle = "Posts";
-        const appName = appTitle.toLowerCase();
+        const logoUri = getLogo(context.extensionPath);
+        currentPanelPosts.iconPath = logoUri;
+        const weavyLogo = currentPanelPosts.webview.asWebviewUri(logoUri);
+        const appTitle = "FEEDS";
+        const appName = "posts"
         const weavy = vscode.workspace.getConfiguration("weavy");
         const weavyUrl = weavy.get<string>("url");
         const weavyUserMail = weavy.get<string>("user.mail");
@@ -136,14 +145,14 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showErrorMessage(`Weavy ${appTitle} Key Cannot be empty/null. Please update a correct value in settings`);
           return false;
         }
-        const weavyLogo = getLogo(context.extensionPath);
+        
         const content = eval("`" + getWebviewContent(context.extensionPath) + "`");
         
-        currentPanel.webview.html = content;
+        currentPanelPosts.webview.html = content;
 
-        currentPanel.onDidDispose(
+        currentPanelPosts.onDidDispose(
           () => {
-            currentPanel = undefined;
+            currentPanelPosts = undefined;
           },
           null,
           context.subscriptions
@@ -151,14 +160,15 @@ export function activate(context: vscode.ExtensionContext) {
   }});
   
   let tasks = vscode.commands.registerCommand('weavy.tasks', () => {
+    let currentPanelTasks = currentPanel;
 		const columnToShowInP = vscode.window.activeTextEditor
         ? vscode.window.activeTextEditor.viewColumn
         : undefined;
 
-      if (currentPanel) {
-        currentPanel.reveal(columnToShowInP);
+      if (currentPanelTasks) {
+        currentPanelTasks.reveal(columnToShowInP);
       } else {
-        currentPanel = vscode.window.createWebviewPanel(
+        currentPanelTasks = vscode.window.createWebviewPanel(
           'weavyTasks',
           'Weavy Tasks',
           columnToShowInP || vscode.ViewColumn.Three,
@@ -167,8 +177,11 @@ export function activate(context: vscode.ExtensionContext) {
 		  }
         );
         
-        const appTitle = "Tasks";
-        const appName = appTitle.toLowerCase();
+        const logoUri = getLogo(context.extensionPath);
+        currentPanelTasks.iconPath = logoUri;
+        const weavyLogo = currentPanelTasks.webview.asWebviewUri(logoUri);
+        const appTitle = "TASKS";
+        const appName = "tasks"
         const weavy = vscode.workspace.getConfiguration("weavy");
         const weavyUrl = weavy.get<string>("url");
         const weavyUserMail = weavy.get<string>("user.mail");
@@ -183,14 +196,14 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.window.showErrorMessage(`Weavy ${appTitle} Key Cannot be empty/null. Please update a correct value in settings`);
           return false;
         }
-        const weavyLogo = getLogo(context.extensionPath);
+        
         const content = eval("`" + getWebviewContent(context.extensionPath) + "`");
         
-        currentPanel.webview.html = content;
+        currentPanelTasks.webview.html = content;
 
-        currentPanel.onDidDispose(
+        currentPanelTasks.onDidDispose(
           () => {
-            currentPanel = undefined;
+            currentPanelTasks = undefined;
           },
           null,
           context.subscriptions
