@@ -11,6 +11,29 @@ export function getWebviewContent(contextPath: string){
 	return readFileSync(htmlPath.fsPath, "utf8");
 }
 
+export function getAppDetails(appName: string){
+	var map = new Map<string, string>();
+	if(appName.toLowerCase() == "messenger"){
+		map.set("viewType", "weavyMessenger");
+		map.set("appTitle", "MESSAGING");
+		map.set("title", "Weavy Messaging");
+	}else if(appName.toLowerCase() == "files"){
+		map.set("viewType", "weavyFiles");
+		map.set("appTitle", "SECURE FILE SHARING");
+		map.set("title", "Weavy Secure File Sharing");
+	}else if(appName.toLowerCase() == "posts"){
+		map.set("viewType", "weavyPosts");
+		map.set("appTitle", "FEEDS");
+		map.set("title", "Weavy Feeds");
+	}else if(appName.toLowerCase() == "tasks"){
+		map.set("viewType", "weavyTasks");
+		map.set("appTitle", "TASKS");
+		map.set("title", "Weavy Tasks");
+	}
+	return map;
+}
+
+
 export function checkForMandatory(weavyUrl:string|any, weavyUserMail: string|any, spacesKey: string|any): boolean{
 	
 	if(weavyUrl === undefined || weavyUrl === null || weavyUrl === ""){
