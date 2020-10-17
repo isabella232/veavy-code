@@ -7,7 +7,6 @@ export function getWebviewContent(contextPath: string){
 	htmlPath = getHtmlPathUri("template", contextPath);
 	if(htmlPath === undefined || htmlPath === null)
 		htmlPath = getHtmlPathUri("error", contextPath);
-
 	console.log(htmlPath.fsPath);
 	return readFileSync(htmlPath.fsPath, "utf8");
 }
