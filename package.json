@@ -4,6 +4,10 @@
 	"description": "Weavy VSCode Extension",
 	"version": "0.0.1",
 	"publisher": "Abhilash",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Better-Boy/veavy-code"
+	},
 	"engines": {
 		"vscode": "^1.48.0"
 	},
@@ -42,11 +46,10 @@
 				"properties": {
 					"weavy.url": {
 						"type": "string",
-						"description": "Weavy EndPoint Url",
+						"description": "Weavy Minimal Javascript with Jquery EndPoint Url",
 						"pattern": "^(http|https)://.*",
 						"examples": [
-							"http://localhost:44323",
-							"https://localhost:44323/"
+							"http://localhost:44323/javascript/weavy.jquery.js"
 						],
 						"scope": "application"
 					},
