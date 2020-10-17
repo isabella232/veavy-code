@@ -8,6 +8,7 @@
 		"type": "git",
 		"url": "https://github.com/Better-Boy/veavy-code"
 	},
+	"publisher": "Abhilash",
 	"engines": {
 		"vscode": "^1.48.0"
 	},
