@@ -1,14 +1,14 @@
-# FILES APP
+# POSTS/FEEDS APP
 
-## How to invoke the files app?
+## How to invoke the Posts/Feeds app?
 
 ### Prerequisites
 1. Enter the weavy javascript endpoint url in settings
 1. Enter the spaces key in settings
 1. Enter the mail id in settings
-1. Enter the files space key in settings
+1. Enter the posts/feeds space key in settings
 
-### Invocation of the Files App
+### Invocation of the Posts/Feeds App
 
 1. Click "Start Debugging" from the Run Menu or F5
    ![vscode-start-debugging](../images/vscode-debug.png)
@@ -18,5 +18,5 @@
 
 1. A new Vscode Window opens up with the extension loaded
     ![command](../images/commands.png)
-1. Click the "Weavy Files" entry
+1. Click the "Weavy Posts" entry
 1. You can see the following screen appear
