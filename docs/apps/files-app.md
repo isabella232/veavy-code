@@ -11,7 +11,9 @@
 ### Invocation of the Files App
 
 1. Click "Start Debugging" from the Run Menu or F5
+
    ![vscode-start-debugging](../images/vscode-debug.png)
+
 1. Open Command Palette by clicking Ctrl+Shift+P. More info - https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_command-palette **OR** click on the settings icon in bottom left corner of the visual code. Click on the Command Palette.
 
 ![settings-vscode](../images/vscode-settings.png)
