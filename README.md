@@ -27,19 +27,20 @@ The complete white-label framework for in-app messaging and collaboration. Diffe
 The steps to install in your local environment are as follows:
 
 1. Get the [Veavy'S Server](https://github.com/Better-Boy/veavy-server) Up and Running
-2. Clone this repository using the following command
+   **Caution: Mention the clientId as "clientId" and clientSecret as "clientSecret" in manage connections**
+1. Clone this repository using the following command
    ```bash
    git clone https://github.com/Better-Boy/veavy-code
    ```
-3. Change the directory to veavy-code
+1. Change the directory to veavy-code
     ```bash
     cd veavy-code
     ```
-4. Open the code in visual studio code
+1. Open the code in visual studio code
     ```bash
     code .
     ```
-5. Click "Start Debugging" from the Run Menu or F5
+1. Click "Start Debugging" from the Run Menu or F5
    ![vscode-start-debugging](./docs/images/vscode-debug.png)
 1. A new Vscode Window opens up with the extension loaded
 
@@ -48,11 +49,28 @@ There are certain settings that need to be done before using the extension. They
 
 ![VeavySettings](./docs/images/veavy-settings.png)
 
-1. Weavy: Url - Weavy Minimal Javascript with Jquery EndPoint Url. 
-2. Weavy › User: Mail - Weavy User Mail
-3. Weavy › Space: Key - Weavy Space Key
-4. Weavy › Files: Key - Weavy Files Key
-5. Weavy › Messenger: Key - Weavy Messenger Key
-6. Weavy › Posts: Key - Weavy Posts Key
-7. Weavy › Tasks: Key - Weavy Tasks Key
+1. Weavy: Url - Weavy Minimal Javascript with Jquery EndPoint Url - (Mandatory for all apps)
+2. Weavy › User: Mail - Weavy User Mail - (Mandatory for all apps)
+3. Weavy › Space: Key - Weavy Space Key - (Mandatory for all apps)
+4. Weavy › Files: Key - Weavy Files Key - (Mandatory for files command)
+5. Weavy › Messenger: Key - Weavy Messenger Key - (Mandatory for messenger command)
+6. Weavy › Posts: Key - Weavy Posts Key - (Mandatory for posts command)
+7. Weavy › Tasks: Key - Weavy Tasks Key - (Mandatory for tasks command)
 
+## Veavy'S Code Usage
+
+Weavy has different apps for different purpose. Every app in the extension can be opened using a command. There are 4 different apps, hence 4 different commands.
+
+**Before invoking any of the commands, please fill the different settings mentioned above**
+
+
+## Possible Errors:
+1. Weavy javascript url not able to load
+2. Blank Screen Appearing
+
+
+
+
+## Improvements to be done
+1. Server side JWT authentication
+2. Better Error Handling
