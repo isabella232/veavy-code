@@ -4,7 +4,7 @@ Veavy'S Code Extension for Visual Studio Code. This repository contains the visu
 
 ## Hackathon Presentation
 
-Powerpoint presentation - [Veavy'S Code](./docs/ppt/pptx)
+Powerpoint presentation - [Veavy'S Code](./docs/ppt.pptx)
 
 ### Extension of this idea:
 Build an electron cross platform desktop app which is very helpful for corporate employees/students as a one stop solution for messaging, document collaboration, file sharing etc.. Instead of having 3-4 desktop apps for each purpose, you can have a single app consisting of all weavy's features which is a lot less development time, cross platform ready and easy to use.
