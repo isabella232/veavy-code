@@ -22,12 +22,22 @@
 			document.getElementById("weavy-container").innerHTML = "<p style='color:red'> Weavy Script Loading Error. Please contact IT Team </p>";
 			return;
 		}
-
+		try{
 		var weavy = new Weavy({
 				jwt: generateJWT(makeid(5),"${weavyUserMail}")
 			});
 		
-		try{
+		
+		weavy.on("authentication-error", function(err){
+			console.log(err);
+			document.getElementById("weavy-container").innerHTML = "<p style='color:red'>" + err.type + " .Please contact IT Team </p>";
+		});
+		
+		weavy.on("user-error", function(err){
+			console.log(err);
+			document.getElementById("weavy-container").innerHTML = "<p style='color:red'>" + err.type + " .Please contact IT Team </p>";
+		});
+
 		var space = weavy.space({ key: "${spacesKey}" });
 		
 		space.app({
@@ -36,7 +46,7 @@
 			container: "#weavy-container"
 		});
 	}catch(err){
-		document.getElementById("weavy-container").innerHTML = "<p style='color:red'>" + err + "Please contact IT Team </p>";
+		document.getElementById("weavy-container").innerHTML = "<p style='color:red'>" + err + " .Please contact IT Team </p>";
 	}
 	});
 
