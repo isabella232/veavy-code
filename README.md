@@ -2,6 +2,14 @@
 
 Veavy'S Code Extension for Visual Studio Code. This repository contains the visual studio code extension for [weavy](https://www.weavy.com/)
 
+## Hackathon Presentation
+
+Powerpoint presentation - [Veavy'S Code](./docs/ppt/pptx)
+
+### Extension of this idea:
+Build an electron cross platform desktop app which is very helpful for corporate employees/students as a one stop solution for messaging, document collaboration, file sharing etc.. Instead of having 3-4 desktop apps for each purpose, you can have a single app consisting of all weavy's features which is a lot less development time, cross platform ready and easy to use.
+
+
 ## What's [Weavy](https://www.weavy.com/)?
 
 The complete white-label framework for in-app messaging and collaboration. Different features of weavy are as follows:
@@ -28,6 +36,8 @@ The steps to install in your local environment are as follows:
 
 1. Get the [Veavy'S Server](https://github.com/Better-Boy/veavy-server) Up and Running  
    **Caution: Mention the clientId as "clientId" and clientSecret as "clientSecret" in manage connections**
+1. Create a new space by name "demo" in weavy
+   ![demo-space](./docs/images/demo-space.png)
 1. Clone this repository using the following command
    ```bash
    git clone https://github.com/Better-Boy/veavy-code
@@ -40,6 +50,7 @@ The steps to install in your local environment are as follows:
     ```bash
     code .
     ```
+1. Run `npm install`
 1. Click "Start Debugging" from the Run Menu or F5
    ![vscode-start-debugging](./docs/images/vscode-debug.png)
 1. A new Vscode Window opens up with the extension loaded
@@ -77,7 +88,8 @@ Weavy has different apps for different purpose. Every app in the extension can b
 ## Known Issues:
 1. Weavy javascript url not able to load
 2. Authentication successful for Unknown User - This is due to client side jwt authentication
-3. Blank Screen Appearing
+3. Authorization Error
+4. Automatic creation of unknow spaces
 
 ## Improvements to be done
 1. Server side JWT authentication

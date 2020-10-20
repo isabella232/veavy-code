@@ -20,3 +20,22 @@
     ![command](../images/commands.png)
 1. Click the "Weavy Tasks" entry
 1. You can see the following screen appear
+
+![tasks-first-open](../images/tasks/tasks-first-open.PNG)
+
+4. I created a task as user_2 and assinged it to abhi
+
+![add-task-details](../images/tasks/add-task-details.PNG)
+
+5. As user_2, I also commented on the task
+
+![user-2-task-comment](../images/tasks/user-2-task-comment.PNG)
+
+6. Logged in as abhi and like the user_2's comment
+
+![comment-liked-by-abhi](../images/tasks/comment-liked-by-abhi.PNG)
+
+
+## Limitations of the Tasks App
+
+No known limitations as of now

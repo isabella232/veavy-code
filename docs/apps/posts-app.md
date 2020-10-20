@@ -20,3 +20,18 @@
     ![command](../images/commands.png)
 1. Click the "Weavy Posts" entry
 1. You can see the following screen appear
+
+![feeds-first-look](../images/feeds/feeds-first-look.PNG)
+
+4. You can create a new feed. I logged in as user_2 and created a new post
+
+![new-feed](../images/feeds/new-feed.PNG)
+
+5. I changed my login to abhi, liked and commented to user_2's post
+
+![abhi-reply](../images/feeds/abhi-reply.PNG)
+
+
+## Limitations of the posts App
+
+No known limitations exists as of now
