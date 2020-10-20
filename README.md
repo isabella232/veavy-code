@@ -85,12 +85,36 @@ Weavy has different apps for different purpose. Every app in the extension can b
 1. [Posts/Feeds App](./docs/apps/posts-app.md)
 1. [Tasks App](./docs/apps/tasks-app.md)
 
+### Packaging the extension
+
+1. Install [vsce](https://github.com/microsoft/vscode-vsce)
+    ```nodejs
+    npm install -g vsce
+    ```
+2. Run the package command
+    ```bash
+    vsce package
+    ```
+3. A `.vsix` file will be generated
+4. To install the extension
+    ```bash
+    code --install-extension <ext_name_version>.vsix
+    ```
+5. To uninstall the extension
+    ```bash
+    code --uninstall-extension <ext_name_version>.vsix
+    ```
+
+
 ## Known Issues:
-1. Weavy javascript url not able to load
-2. Authentication successful for Unknown User - This is due to client side jwt authentication
-3. Authorization Error
-4. Automatic creation of unknow spaces
+1. Weavy + jquery minified url not able to load
+   Sol: Give the correct weavy Weavy + jquery minified url endpoint
+1. Authentication successful for Unknown User - This is due to client side jwt authentication
+1. authorization-error/user-error - JWT token was invalid
+1. Automatic creation of unknow spaces - 
+1. Blank Screen Appears - This is due to unknown error in the webview. Debug using the "Developer Tools" (Help - [How to Open Developer Tools](https://stackoverflow.com/questions/52613207/how-to-debug-a-vscode-extensions-webview-javascript))
 
 ## Improvements to be done
 1. Server side JWT authentication
 2. Better Error Handling
+3. Disable auto-creation of spaces
