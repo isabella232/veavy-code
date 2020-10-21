@@ -111,7 +111,7 @@ Weavy has different apps for different purpose. Every app in the extension can b
    Sol: Give the correct weavy Weavy + jquery minified url endpoint
 1. Authentication successful for Unknown User - This is due to client side jwt authentication
 1. authorization-error/user-error - JWT token was invalid
-1. Automatic creation of unknow spaces - 
+1. Automatic creation of unknown spaces - This is the default behaviour in weavy
 1. Blank Screen Appears - This is due to unknown error in the webview. Debug using the "Developer Tools" (Help - [How to Open Developer Tools](https://stackoverflow.com/questions/52613207/how-to-debug-a-vscode-extensions-webview-javascript))
 
 ## Improvements to be done
